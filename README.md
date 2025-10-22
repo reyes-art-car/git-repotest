@@ -1,2 +1,6 @@
-Nombre: Reyes Artacho
-Descripci¢n del proyecto: Proyecto de prueba para clase.
+Maria Reyes Artacho Carrero
+
+
+
+Mi proyecto va sobre la creaci√≥n de un portfolio
+

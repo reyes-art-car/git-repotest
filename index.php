@@ -1,27 +1,71 @@
 <?php
-define("SITE_NAME", "Dinamizando_Taskflow");
-$pageTitle = SITE_NAME . " - Página de Inicio";
-$userName = "Reyes Artacho"; // Tipo String
-$userAge = 29;             // Tipo Integer
-$isEatingKebab = true;     // Tipo Boolean
+
+$tasks = [
+    [
+        'title' => 'Estudiar PHP',
+        'completed' => false,
+        'priority' => 'alta'
+    ],
+    [
+        'title' => 'Preparar presentación',
+        'completed' => true,
+        'priority' => 'media'
+    ],
+    [
+        'title' => 'Lavar la ropa',
+        'completed' => false,
+        'priority' => 'baja'
+    ],
+    [
+        'title' => 'Comprar comida',
+        'completed' => true,
+        'priority' => 'alta'
+    ],
+    [
+        'title' => 'Hacer ejercicio',
+        'completed' => false,
+        'priority' => 'media'
+    ]
+];
+
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>TaskFlow</title>
-    <title><?php echo $pageTitle; ?></title>
-</head>
-<body>
-<h1>Bienvenido a nuestra aplicación</h1>
-<header>
-    <h1>Bienvenido a <?php echo SITE_NAME; ?></h1>
-</header>
-<main>
-    <h2>Perfil del Usuario</h2>
-    <p><strong>Nombre:</strong> <?php echo $userName; ?></p>
-    <p><strong>Edad:</strong> <?php echo $userAge; ?> años</p>
-    <p><strong>Almuerzo:</strong> Usuario <?php echo $isEatingKebab ? "Kebab" : "No Kebab"; ?></p>
-</main>
-</body>
-</html>
+
+<?php
+include __DIR__ . '/app/views/header.php';?>
+
+
+
+
+<h2>Tareas Pendientes</h2>
+<style></style>
+<ul>
+    <?php
+    foreach ($tasks as $task) {
+
+        // Inicializamos la variable de clases vacía
+        $taskClasses = '';
+
+        // 1. IF para la clave 'completed'
+        if ($task['completed'] === true) {
+            $taskClasses .= ' completed';
+        }
+
+        // 2. SWITCH para la clave 'priority'
+        switch ($task['priority']) {
+            case 'alta':
+                $taskClasses .= ' priority-alta';
+                break;
+            case 'media':
+                $taskClasses .= ' priority-media';
+                break;
+            case 'baja':
+                $taskClasses .= ' priority-baja';
+                break;
+        }
+
+
+        echo '<li class="' . trim($taskClasses) . '">' . $task['title'] . '</li>';
+    }
+    ?>
+</ul>
+<?php include __DIR__ . '/app/views/footer.php'; ?>
