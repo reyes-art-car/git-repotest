@@ -33,9 +33,6 @@ $tasks = [
 <?php
 include __DIR__ . '/app/views/header.php';?>
 
-
-
-
 <h2>Tareas Pendientes</h2>
 <style></style>
 <ul>

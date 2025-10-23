@@ -1,10 +1,3 @@
-<?php
-define("SITE_NAME", "Dinamizando_Taskflow");
-$pageTitle = SITE_NAME . " - Página de Inicio";
-$userName = "Reyes Artacho"; // Tipo String
-$userAge = 29;             // Tipo Integer
-$isEatingKebab = true;     // Tipo Boolean
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
