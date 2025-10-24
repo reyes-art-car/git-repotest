@@ -1,7 +1,6 @@
 </main>
-
 <footer>
-    <p>&copy; <?php echo date('Y'); ?> TaskFlow. Todos los derechos reservados.</p>
+    <p>© <?php echo date('Y'); ?> TaskFlow</p>
 </footer>
 </body>
 </html>
