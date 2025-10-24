@@ -45,7 +45,7 @@ $resta=$stock-25;
 echo "Resta:".$resta. "<br>";
 $suma= $stock+50;
 echo "Suma:".$suma."<br>";
-echo "<hr>";
+echo "<hr>";,
 
 //Problema 2.3 Concatenación de Textos
 echo "<h2>Problema 2.3. Concatenación de Textos</h2>";

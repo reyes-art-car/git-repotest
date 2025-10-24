@@ -1,54 +1,22 @@
 <?php
-define("SITE_NAME", "Dinamizando_Taskflow");
-$pageTitle = SITE_NAME . " - Página de Inicio";
-$userName = "Reyes Artacho"; // Tipo String
-$userAge = 29;             // Tipo Integer
-$isEatingKebab = true;     // Tipo Boolean
+// Datos de las tareas (simulando una base de datos)
+$tareas = [
+    ['titulo' => 'Configurar el entorno de desarrollo', 'completado' => true, 'prioridad' => 'alta'],
+    ['titulo' => 'Crear la estructura de carpetas', 'completado' => true, 'prioridad' => 'alta'],
+    ['titulo' => 'Diseñar la base de datos', 'completado' => false, 'prioridad' => 'media'],
+    ['titulo' => 'Implementar el sistema de login', 'completado' => false, 'prioridad' => 'alta'],
+    ['titulo' => 'Crear la vista de tareas', 'completado' => false, 'prioridad' => 'baja']
+];
+
+include '../app/views/header.php';
+require_once __DIR__ . '/../app/functions.php';
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>TaskFlow</title>
-    <title><?php echo $pageTitle; ?></title>
-</head>
-<body>
-<h1>Bienvenido a nuestra aplicación</h1>
-<header>
-    <h1>Bienvenido a <?php echo SITE_NAME; ?></h1>
-</header>
-<main>
-    <h2>Perfil del Usuario</h2>
-    <p><strong>Nombre:</strong> <?php echo $userName; ?></p>
-    <p><strong>Edad:</strong> <?php echo $userAge; ?> años</p>
-    <p><strong>Almuerzo:</strong> Usuario <?php echo $isEatingKebab ? "Kebab" : "No Kebab"; ?></p>
-</main>
-</body>
-</html>
-<?php
-define("SITE_NAME", "Dinamizando_Taskflow");
-$pageTitle = SITE_NAME . " - Página de Inicio";
-$userName = "Reyes Artacho"; // Tipo String
-$userAge = 29;             // Tipo Integer
-$isEatingKebab = true;     // Tipo Boolean
-?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>TaskFlow</title>
-    <title><?php echo $pageTitle; ?></title>
-</head>
-<body>
-    <h1>Bienvenido a nuestra aplicación</h1>
-    <header>
-        <h1>Bienvenido a <?php echo SITE_NAME; ?></h1>
-    </header>
-    <main>
-        <h2>Perfil del Usuario</h2>
-        <p><strong>Nombre:</strong> <?php echo $userName; ?></p>
-        <p><strong>Edad:</strong> <?php echo $userAge; ?> años</p>
-        <p><strong>Almuerzo:</strong> Usuario <?php echo $isEatingKebab ? "Kebab" : "No Kebab"; ?></p>
-    </main>
-</body>
-</html>
+
+<h2>Tareas Pendientes</h2>
+<ul>
+    <?php foreach ($tareas as $tarea) : ?>
+        <?php echo renderizarTarea($tarea); ?>
+    <?php endforeach; ?>
+</ul>
+
+<?php include '../app/views/footer.php'; ?>

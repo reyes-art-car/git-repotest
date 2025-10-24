@@ -1,27 +1,42 @@
 <?php
-define("SITE_NAME", "Dinamizando_Taskflow");
-$pageTitle = SITE_NAME . " - Página de Inicio";
-$userName = "Reyes Artacho"; // Tipo String
-$userAge = 29;             // Tipo Integer
-$isEatingKebab = true;     // Tipo Boolean
-?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>TaskFlow</title>
-    <title><?php echo $pageTitle; ?></title>
-</head>
-<body>
-<h1>Bienvenido a nuestra aplicación</h1>
-<header>
-    <h1>Bienvenido a <?php echo SITE_NAME; ?></h1>
-</header>
-<main>
-    <h2>Perfil del Usuario</h2>
-    <p><strong>Nombre:</strong> <?php echo $userName; ?></p>
-    <p><strong>Edad:</strong> <?php echo $userAge; ?> años</p>
-    <p><strong>Almuerzo:</strong> Usuario <?php echo $isEatingKebab ? "Kebab" : "No Kebab"; ?></p>
-</main>
-</body>
-</html>
+include __DIR__ . '/app/views/header.php';?>
+
+<h2>Tareas Pendientes</h2>
+<style src="css/style.css""></style>
+<ul>
+    <?php
+    $tasks = [
+        [
+            'title' => 'Estudiar PHP',
+            'completed' => false,
+            'priority' => 'alta'
+        ],
+        [
+            'title' => 'Preparar presentación',
+            'completed' => true,
+            'priority' => 'media'
+        ],
+        [
+            'title' => 'Lavar la ropa',
+            'completed' => false,
+            'priority' => 'baja'
+        ],
+        [
+            'title' => 'Comprar comida',
+            'completed' => true,
+            'priority' => 'alta'
+        ],
+        [
+            'title' => 'Hacer ejercicio',
+            'completed' => false,
+            'priority' => 'media'
+        ]
+    ];
+
+
+    foreach ($tasks as $tarea) {
+      echo renderizarTarea($tarea);
+  }
+  ?>
+</ul>
+<?php include __DIR__ . '/app/views/footer.php'; ?>
